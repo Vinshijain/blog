@@ -5,7 +5,6 @@ var BG = BG || {};
   }
   BG.ListArticle.prototype= {
     initialize:function() {
-      console.log("I'm working...");
     this.getAllArticles();
   },
 
@@ -15,7 +14,10 @@ var BG = BG || {};
       type: "GET",
       format: "JSON",
       success: function (data, textStatus, jqXHR){
-        console.log(data);
+        $.each(data, function (i, article) {
+          row = "<tr id= "+article.id+"><td>"+article.title+"</td><td></td></tr>"
+          $(".articles-list .articles-list-data").append(row);
+        });
       },
       error: function (jqXHR, textStatus, errorThrown){
       }
