@@ -1,7 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+   
+  </head>
+    <body>  
+    <h1>New article</h1>
+    <form class="new_article" id="new_article" action="/articles" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="w6UasizyAIRgyYobCmtqxA8da8BIK/zmQpahOOvLxe8N78o8LqV2LtVU5SFmzNTYAHQzKPdzeBRK0ul7QW+EEg==" />
+      <p>
+        <label for="article_title">Title</label><br>
+        <input type="text" name="article[title]" id="article_title" />
+      </p>
+      <p>
+        <label for="article_text">Text</label><br>
+        <textarea name="article[text]" id="article_text">
+        </textarea>
+      </p>
+      <p>
+        <input type="submit" name="commit" value="Create Article" />
+      </p>
+    </form>
+    <a href="/articles">Back</a>
+  </body>
+</html>
 
-
-<h1>New article</h1>
- 
-<%= render 'form' %>
- 
-<%= link_to 'Back', articles_path %>

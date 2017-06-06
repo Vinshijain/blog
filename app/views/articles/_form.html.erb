@@ -1,4 +1,10 @@
-<%= form_for @article do |f| %>
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+  <%= form_for @article do |f| %>
  
   <% if @article.errors.any? %>
     <div id="error_explanation">
@@ -28,4 +34,6 @@
     <%= f.submit %>
   </p>
  
-<% end %>
+  <% end %>
+</body>
+</html>

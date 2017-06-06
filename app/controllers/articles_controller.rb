@@ -1,11 +1,13 @@
 class ArticlesController < ApplicationController
-  http_basic_authenticate_with name: "Vinshi", password: "secret", except: [:index, :show]
+  # http_basic_authenticate_with name: "Vinshi", password: "secret", except: [:index, :show]
   def index
     @articles = Article.all
+    render :json => @articles, :status => :ok
   end
  
   def show
     @article = Article.find(params[:id])
+    render :json => @article, :status => :ok
   end
 
   def new
@@ -20,9 +22,9 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     
     if @article.save
-    redirect_to @article
+      render :json => @article, :status => :ok
     else
-    render 'new'
+      render :json => @article.errors, :status => :Unprocessable_entity
     end
   end
 
