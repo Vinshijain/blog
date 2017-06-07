@@ -6,15 +6,16 @@ var BG = BG || {};
   BG.NewArticle.prototype={
     initialize:function() {
       this.handleSubmitArticle();
-      this.getAllArticles();
+      //this.getAllArticles();
   },
 
-  handleSubmitArticle:function(){
+  handleSubmitArticle:function(){ 
     $('#newContainer #articleForm #articleSubmitButton').click(function(e){
       e.preventDefault();
       var attr = {};
       attr['title'] = $('#newContainer #articleForm #title').val();
-      attr['text'] = $('#newContainer #articleForm #description').val();  
+      attr['text'] = $('#newContainer #articleForm #description').val(); 
+      
       $.ajax({
         url: "/articles",
         type: "POST",
@@ -22,6 +23,7 @@ var BG = BG || {};
         format: "JSON",
         success: function (data, textStatus, jqXHR){
           console.log(data);
+          $('#newContainer #articleForm #title')[0].reset();
         },
         error: function (jqXHR, textStatus, errorThrown){
         }
