@@ -1,15 +1,16 @@
 var BG = BG || {};
 
-  BG.ListArticle = function () {
-    this.initialize();
+BG.ListArticle = function () {
+  this.initialize();
   }
-  BG.ListArticle.prototype= {
-    initialize:function() {
+
+BG.ListArticle.prototype= {
+  initialize:function() {
     this.getAllArticles();
-    //this.deleteSingleArticle();
   },
 
   getAllArticles:function(){
+    var self = this;
     $.ajax({
       url: "/articles",
       type: "GET",
@@ -17,14 +18,30 @@ var BG = BG || {};
       success: function (data, textStatus, jqXHR){
         $( ".articles-list .articles-list-data" ).html("");
         $.each(data, function (i, article) {
-          btnShow = '<input type="button" value="Show" />'
-          btnDelete = '<input type="button" value="Delete" />'
+          btnShow = '<input type="button" value="Show" id="show_article"/>'
+          btnDelete = '<input type="button" article-id="'+article.id+'" value="Delete" id="delete_article"/>'
           row = "<tr id= "+article.id+"><td>"+article.title+"</td><td>"+btnShow+""+btnDelete+"</td></tr>"
           $(".articles-list .articles-list-data").append(row);
         });
+        self.deleteSingleArticle();
       },
       error: function (jqXHR, textStatus, errorThrown){
       }
+    });
+  },
+  deleteSingleArticle:function(){
+    $(".articles-list-table .articles-list-data #delete_article").click(function(){
+      console.log(this);
+      var self = this;
+      var article_id = $(this).attr('article-id');
+       $.ajax({
+         url: "/articles/"+article_id,
+         type: "DELETE",
+         format: "JSON",
+         success: function (data, textStatus, jqXHR){
+          $(self).closest('tr').remove();
+         }
+      });
     });
   }
 }

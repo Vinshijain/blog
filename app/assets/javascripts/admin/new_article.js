@@ -23,7 +23,9 @@ var BG = BG || {};
         format: "JSON",
         success: function (data, textStatus, jqXHR){
           console.log(data);
-          $('#newContainer #articleForm #title')[0].reset();
+          attr['title'] = $('#newContainer #articleForm #title').val('');
+          attr['text'] = $('#newContainer #articleForm #description').val(''); 
+
         },
         error: function (jqXHR, textStatus, errorThrown){
         }

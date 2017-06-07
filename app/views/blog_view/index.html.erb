@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Blog</title>
-<link rel="stylesheet" type="text/css" href="assets/common_manifest.css">
-</head>
-<body>
-  <h1>It's my blog</h1>
-  <div class="nav-bar">
-    <button class="button" id="newArticleClick">New Article</button>
-    <button class="button" id="listArticleClick">List Articles</button>
-  </div>
-  <div class="content">
-    <%= render partial: 'blog_view/new' %>
-    <%= render partial: 'blog_view/list' %>
-  </div>
-</body>
+  <head>
+    <title>Blog</title>
+    <link rel="stylesheet" type="text/css" href="assets/common_manifest.css">
+  </head>
+  <body>
+    <h1>It's my blog</h1>
+    <div class="nav-bar">
+      <button class="button" id="newArticleClick">New Article</button>
+      <button class="button" id="listArticleClick">List Articles</button>
+    </div>
+    <div class="content">
+      <%= render partial: 'blog_view/new' %>
+      <%= render partial: 'blog_view/list' %>
+    </div>
+  </body>
 </html>
 <%=javascript_include_tag 'admin_manifest'%>
 <%=javascript_include_tag 'common_manifest'%>
