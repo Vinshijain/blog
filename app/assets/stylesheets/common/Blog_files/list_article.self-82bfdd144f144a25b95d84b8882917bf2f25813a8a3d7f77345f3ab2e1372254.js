@@ -6,7 +6,6 @@ var BG = BG || {};
   BG.ListArticle.prototype= {
     initialize:function() {
     this.getAllArticles();
-    //this.addShow();
   },
 
   getAllArticles:function(){
@@ -17,11 +16,10 @@ var BG = BG || {};
       success: function (data, textStatus, jqXHR){
         $( ".articles-list .articles-list-data" ).html("");
         $.each(data, function (i, article) {
-          button1 = '<input type="button" value="Show" />'
-          button2 = '<input type="button" value="Delete" />'
-          row = "<tr id= "+article.id+"><td>"+article.title+"</td><td>"+button1+""+button2+"</td></tr>"
+          row = "<tr id= "+article.id+"><td>"+article.title+"</td><td></td></tr>"
           $(".articles-list .articles-list-data").append(row);
         });
+        row = "<tr id= "+article.id+"><td>"+article.title+"</td><td></td></tr>"
       },
       error: function (jqXHR, textStatus, errorThrown){
       }
