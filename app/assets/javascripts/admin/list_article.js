@@ -14,6 +14,7 @@ var BG = BG || {};
       type: "GET",
       format: "JSON",
       success: function (data, textStatus, jqXHR){
+        $( ".articles-list .articles-list-data" ).html("");
         $.each(data, function (i, article) {
           row = "<tr id= "+article.id+"><td>"+article.title+"</td><td></td></tr>"
           $(".articles-list .articles-list-data").append(row);
