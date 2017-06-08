@@ -12,6 +12,7 @@ BG.Logged.prototype= {
   handleHideAllContainer: function() {
     $('.content #newContainer').addClass('hidden');
     $('.content #listContainer').addClass('hidden');
+    $('.content #showContainer').addClass('hidden');
   },
 
   handleEventClick: function() {
@@ -26,6 +27,11 @@ BG.Logged.prototype= {
       self.handleHideAllContainer();
       $('.content #listContainer').removeClass('hidden');
       var listArticle = new BG.ListArticle();
+    });
+    $('.nav-bar #showArticleClick').click(function(){
+      self.handleHideAllContainer();
+      $('.content #showContainer').removeClass('hidden');
+      var showArticle = new BG.ShowArticle();
     });
   }
 }
