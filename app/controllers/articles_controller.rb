@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
     if @article.save
       render :json => @article, :status => :ok
     else
-      render :json => @article.errors, :status => :Unprocessable_entity
+      render :json => @article.errors, :status => :unprocessable_entity
     end
   end
 
@@ -39,9 +39,13 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
-    @article.destroy
-    redirect_to articles_path
+    begin
+      @article = Article.find(params[:id])
+      @article.destroy
+      render :json => {}, :status => :ok
+    rescue => e
+      render json: {error: e.message}, status: :unprocessable_entity
+    end
   end
  
   private

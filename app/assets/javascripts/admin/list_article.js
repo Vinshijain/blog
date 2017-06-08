@@ -24,6 +24,7 @@ BG.ListArticle.prototype= {
           $(".articles-list .articles-list-data").append(row);
         });
         self.deleteSingleArticle();
+        self.showSingleArticle();
       },
       error: function (jqXHR, textStatus, errorThrown){
       }
@@ -43,5 +44,19 @@ BG.ListArticle.prototype= {
          }
       });
     });
-  }
+  },
+  showSingleArticle:function(){
+    $(".articles-list-table .articles-list-data #show_article").click(function(){
+      var self = this;
+      var article_id = $(this).attr('article-id');
+      $.ajax({
+        url:"/articles/"+article_id,
+        type:"GET",
+        format:"JSON",
+        success: function (data, textStatus, jqXHR){
+          $(self).closest('tr').show();
+        }
+      });
+    });
+  },
 }

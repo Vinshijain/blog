@@ -1,12 +1,11 @@
 var BG = BG || {};
 
-  BG.NewArticle = function () {
-    this.initialize();
-  }
-  BG.NewArticle.prototype={
-    initialize:function() {
-      this.handleSubmitArticle();
-      //this.getAllArticles();
+BG.NewArticle = function () {
+  this.initialize();
+}
+BG.NewArticle.prototype={
+  initialize:function() {
+    this.handleSubmitArticle();
   },
 
   handleSubmitArticle:function(){ 
@@ -25,7 +24,6 @@ var BG = BG || {};
           console.log(data);
           attr['title'] = $('#newContainer #articleForm #title').val('');
           attr['text'] = $('#newContainer #articleForm #description').val(''); 
-
         },
         error: function (jqXHR, textStatus, errorThrown){
         }
