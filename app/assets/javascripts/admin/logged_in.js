@@ -30,8 +30,7 @@ BG.Logged.prototype= {
     });
     $('.nav-bar #showArticleClick').click(function(){
       self.handleHideAllContainer();
-      $('.content #showContainer').removeClass('hidden');
-      var showArticle = new BG.ShowArticle();
+       $('.content #showContainer').removeClass('hidden');
     });
   }
 }

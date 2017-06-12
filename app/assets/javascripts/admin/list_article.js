@@ -54,8 +54,7 @@ BG.ListArticle.prototype= {
         type:"GET",
         format:"JSON",
         success: function (data, textStatus, jqXHR){
-          $(self).closest('tr').load('show.html');
-          console.log(data);
+          $(self).closest('tr').show();
         }
       });
     });
