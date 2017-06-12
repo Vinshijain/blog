@@ -28,9 +28,5 @@ BG.Logged.prototype= {
       $('.content #listContainer').removeClass('hidden');
       var listArticle = new BG.ListArticle();
     });
-    $('.nav-bar #showArticleClick').click(function(){
-      self.handleHideAllContainer();
-       $('.content #showContainer').removeClass('hidden');
-    });
   }
 }
